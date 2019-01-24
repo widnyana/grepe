@@ -1,0 +1,124 @@
+scalar Timestamp
+
+interface Person {
+    address: String!
+    city: String!
+    country: String!
+    firstName: String!
+    lastName: String!
+    phone: String!
+}
+
+
+type Customer {
+    id: ID!
+    address: String!
+    city: String!
+    country: String!
+    district: String!
+    firstName: String!
+    lastName: String!
+    phone: String!
+    rentals: [Rental!]!
+}
+
+type Payment {
+    amount: Float!
+    paymentDate: Timestamp!
+    paymentId: Int!
+}
+
+
+type Rental {
+    filmTitle: String!
+    rentalDate: Timestamp!
+    returnDate: Timestamp!
+    filmId: Int!
+    rentalId: Int!
+    staffId: Int!
+    payment: Payment!
+}
+
+type Actor {
+    id: ID!
+    firstName: String!
+    lastName: String!
+}
+
+type Film {
+    id: ID!
+    actors: [Actor!]!
+    category: String!
+    description: String!
+    length: Int!
+    rating: String!
+    rentalDuration: Int!
+    replacementCost: Float!
+    specialFeatures: String!
+    title: String!
+}
+
+type Staff implements Person {
+    staffId: ID!
+}
+
+type Inventory {
+    filmId: ID!
+    title: String!
+    inventoryId: Int!
+}
+
+type Store {
+    id: ID!
+    address: String!
+    city: String!
+    country: String!
+    managerStaffId: Int!
+    inventory: [Inventory!]!
+}
+
+input NewCustomer {
+    id: ID!
+    address: String!
+    city: String!
+    country: String!
+    district: String!
+    firstName: String!
+    lastName: String!
+    phone: String!
+}
+
+input RentFilm {
+    customerId: Int!
+    filmId: Int!
+}
+
+
+input NewActor {
+    firstName: String!
+    lastName: String!
+}
+
+input NewFilm {
+    actors: [NewActor!]!
+    category: String!
+    description: String!
+    length: Int!
+    rating: String!
+    rentalDuration: Int!
+    replacementCost: Float!
+    specialFeatures: String!
+    title: String!
+}
+
+type Query {
+    film: [Film!]!
+    store: [Store!]!
+    customer: [Customer!]!
+}
+
+type Mutation {
+    createCustomer(input: NewCustomer!): Customer!
+    rentFilm(input: RentFilm!): String!
+    newFilm(input: NewFilm!): Film! 
+}

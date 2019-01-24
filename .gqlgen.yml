@@ -1,0 +1,29 @@
+schema: schema/schema.gql
+struct_tag: json
+
+exec:
+  filename: graph/generated.go
+  package: graph
+
+model:
+  filename: models/generated.go
+  package: models
+
+resolver:
+  filename: graph/resolver.go # where to write them
+  type: Resolver  # whats the resolver root implementation type called?
+
+
+models:
+  Customer:
+    model: github.com/widnyana/grepe/models.Customer
+
+  Film:
+    model: github.com/widnyana/grepe/models.Film
+
+  Store:
+    model: github.com/widnyana/grepe/models.Store
+    fields:
+      id:
+        resolver: true # force a resolver to be generated
+        fieldName: storeId # bind to a different go field name
