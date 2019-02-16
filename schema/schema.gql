@@ -40,7 +40,7 @@ type Rental {
 }
 
 type Actor {
-    id: ID!
+    ID: ID!
     firstName: String!
     lastName: String!
 }
@@ -111,10 +111,19 @@ input NewFilm {
     title: String!
 }
 
+input SearchFilm {
+    title: String!
+    category: String!
+    description: String!
+}
+
 type Query {
     film: [Film!]!
     store: [Store!]!
+    actor: [Actor!]!
     customer: [Customer!]!
+    searchFilm(input: SearchFilm): [Film!]!
+    searchActor(name: String!): [Actor!]!
 }
 
 type Mutation {

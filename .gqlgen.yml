@@ -6,7 +6,7 @@ exec:
   package: graph
 
 model:
-  filename: models/generated.go
+  filename: models/model_generated.go
   package: models
 
 resolver:
@@ -20,6 +20,12 @@ models:
 
   Film:
     model: github.com/widnyana/grepe/models.Film
+
+  Actor:
+    model: github.com/widnyana/grepe/models.Actor
+
+  Inventory:
+    model: github.com/widnyana/grepe/models.Inventory
 
   Store:
     model: github.com/widnyana/grepe/models.Store

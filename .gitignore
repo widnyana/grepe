@@ -90,7 +90,7 @@ yarn-debug.log*
 yarn-error.log*
 bin/*
 graph/generated.go
-models/generated.go
+models/model_generated.go
 
 
 gql

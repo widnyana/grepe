@@ -1,0 +1,7 @@
+mongo: 
+  port: 27017
+  host: localhost
+  database: sakila
+  username: root
+  password: root
+  options: authSource=admin
