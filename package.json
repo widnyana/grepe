@@ -1,0 +1,24 @@
+{
+  "name": "grepe",
+  "version": "1.0.0",
+  "description": "Grepe the graphql ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/widnyana/grepe.git"
+  },
+  "author": "widnyana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/widnyana/grepe/issues"
+  },
+  "homepage": "https://github.com/widnyana/grepe#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "graphql": "^14.1.1",
+    "graphql-tools": "^4.0.4"
+  }
+}
