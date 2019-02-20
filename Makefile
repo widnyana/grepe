@@ -15,10 +15,16 @@ build:
 	@echo "  >  Building gql binary"
 	@GOPATH=$(GOPATH) GOBIN=$(GOBIN) go build -o $(GOBIN)/gql ./cmd/gql
 
+## gqlgen: generate related GraphQL files using gqlgen
+gqlgen:
+	@echo "  >  Generating GraphQL files"
+	@GOPATH=$(GOPATH) GOBIN=$(GOBIN) go run cmd/gql/main.go generate -c ./.gqlgen.yml
+	
 ## clean: Clean build files. Runs `go clean` internally.
 clean:
 	@-rm $(GOBIN)/$(PROJECTNAME) 2> /dev/null
 	@-rm $(GOBIN)/gql 2> /dev/null
+	@-rm ./gql 2> /dev/null
 	@-$(MAKE) go-clean
 
 go-build:
